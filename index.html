@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0;url=https://rahulpuri.fun">
     <title>Redirecting...</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #ffffff;
+            background: #f5f5f5;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -17,7 +16,6 @@
             height: 100vh;
             overflow: hidden;
         }
-        
         .loader {
             width: 50px;
             height: 50px;
@@ -25,150 +23,80 @@
             border-top: 5px solid #3498db;
             border-radius: 50%;
             animation: spin 1s linear infinite;
+            margin: 0 auto;
         }
-        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
         .message {
             margin-top: 20px;
             color: #666;
             font-size: 14px;
             text-align: center;
         }
-        
-        /* Hide everything initially */
-        .container {
-            opacity: 0;
-            animation: fadeIn 0.5s ease-in-out 0.2s forwards;
-        }
-        
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-        
-        /* Mobile optimization */
-        @media (max-width: 768px) {
-            .loader {
-                width: 40px;
-                height: 40px;
-                border-width: 4px;
-            }
-            .message {
-                font-size: 12px;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div style="text-align: center;">
-            <div class="loader"></div>
-            <div class="message">Loading...</div>
-        </div>
+    <div>
+        <div class="loader"></div>
+        <div class="message">Redirecting...</div>
     </div>
 
     <script>
-        // Immediate redirect configuration
+        // Configuration
         const OLD_DOMAIN = 'thelamp.site';
         const NEW_DOMAIN = 'rahulpuri.fun';
-        
-        // Build new URL with same path and parameters
-        function buildRedirectUrl() {
-            const currentPath = window.location.pathname || '/';
-            const currentSearch = window.location.search || '';
-            const currentHash = window.location.hash || '';
-            
-            return `https://${NEW_DOMAIN}${currentPath}${currentSearch}${currentHash}`;
+        const SPECIAL_PATH = '/Rameshwar_Instagram/';
+        const SPECIAL_REDIRECT = '/Instagram/';
+
+        // Get current path
+        const currentPath = window.location.pathname;
+        const currentSearch = window.location.search || '';
+        const currentHash = window.location.hash || '';
+
+        // Check if the path is the special one
+        let redirectUrl;
+        if (currentPath.toLowerCase() === SPECIAL_PATH.toLowerCase()) {
+            redirectUrl = `https://${NEW_DOMAIN}${SPECIAL_REDIRECT}${currentSearch}${currentHash}`;
+        } else {
+            // For all other paths (including dead/unknown pages)
+            redirectUrl = `https://${NEW_DOMAIN}/${currentSearch}${currentHash}`;
         }
-        
+
         // Multiple redirect methods for maximum compatibility
-        function performRedirect() {
-            const newUrl = buildRedirectUrl();
-            
+        function performRedirect(url) {
             try {
                 // Method 1: Immediate redirect
-                window.location.replace(newUrl);
+                window.location.replace(url);
                 
                 // Method 2: Fallback
                 setTimeout(() => {
-                    window.location.href = newUrl;
+                    window.location.href = url;
                 }, 50);
                 
                 // Method 3: Last resort
                 setTimeout(() => {
-                    document.location = newUrl;
+                    document.location = url;
                 }, 100);
-                
             } catch (e) {
-                // Silent fallback - no error shown
-                window.open(newUrl, '_self');
+                // Silent fallback
+                window.open(url, '_self');
             }
         }
-        
-        // Execute immediately when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', performRedirect);
-        } else {
-            performRedirect();
-        }
-        
+
+        // Execute immediately
+        performRedirect(redirectUrl);
+
         // Backup redirect after short delay
-        setTimeout(performRedirect, 100);
-        
-        // Handle page visibility changes
-        document.addEventListener('visibilitychange', function() {
-            if (document.visibilityState === 'visible') {
-                performRedirect();
-            }
-        });
-        
-        // Prevent back button issues
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted) {
-                performRedirect();
-            }
-        });
-        
-        // Handle any clicks on the page
-        document.addEventListener('click', performRedirect);
-        
-        // Handle keyboard events
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
-                performRedirect();
-            }
-        });
-        
-        // Mobile touch events
-        document.addEventListener('touchstart', performRedirect);
-        
-        // Prevent any form submissions
-        document.addEventListener('submit', function(e) {
-            e.preventDefault();
-            performRedirect();
-        });
-        
-        // Override console errors (optional - for complete silence)
-        window.onerror = function() { return true; };
-        window.addEventListener('error', function(e) { e.preventDefault(); });
-        
-        // Disable right-click context menu
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            performRedirect();
-        });
-        
+        setTimeout(() => {
+            performRedirect(redirectUrl);
+        }, 100);
     </script>
-    
-    <!-- Fallback for browsers with JavaScript disabled -->
+
+    <!-- Fallback for no JavaScript -->
     <noscript>
         <meta http-equiv="refresh" content="0;url=https://rahulpuri.fun">
-        <style>
-            body { display: none; }
-        </style>
     </noscript>
 </body>
 </html>
