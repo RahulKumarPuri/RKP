@@ -1,264 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEBSITE: Rahul Kumar Puri</title>
+    <meta http-equiv="refresh" content="0;url=https://rahulpuri.fun">
+    <title>Redirecting...</title>
     <style>
         body {
             margin: 0;
-            overflow: hidden;
+            padding: 0;
+            background: #ffffff;
+            font-family: Arial, sans-serif;
             display: flex;
-            align-items: center;
             justify-content: center;
-            background-color: #f0f0f0;
-            height: 100vh;
-        }
-        .runner-container {
-            position: relative;
-            width: 100vw;
+            align-items: center;
             height: 100vh;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
         }
-
-        .runner {
-    position: absolute;
-    bottom: 50%;
-    left: -10%;
-    width: 100px; /* Default Mobile size */
-    height: auto;
-    opacity: 0.9;
-    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
-}
-
-@media (min-width: 768px) {
-    .runner {
-        width: 150px; /* Tablet size */
-    }
-}
-
-@media (min-width: 1025px) {
-    .runner {
-        width: 200px; /* Desktop size */
-    }
-}
-
-        .shadow {
-            position: absolute;
-            bottom: 45%;
-            left: -10%;
-            width: 90px;
-            height: 20px;
-            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 80%);
-            transform-origin: center;
-            opacity: 0.7;
-        }
-
-        /* 12 Wind Lines for general wind effect */
-        .wind-line {
-            position: absolute;
-            top: 50%;
-            width: 0;
-            height: 3px;
-            background-color: rgba(255, 255, 255, 0.8);
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
             border-radius: 50%;
-            opacity: 0.8;
+            animation: spin 1s linear infinite;
         }
-
-        /* Positioning the wind lines at varying distances */
-        .wind-line-1 { left: -5%; }
-        .wind-line-2 { left: -10%; }
-        .wind-line-3 { left: -15%; }
-        .wind-line-4 { left: -20%; }
-        .wind-line-5 { left: -25%; }
-        .wind-line-6 { left: -30%; }
-        .wind-line-7 { left: -35%; }
-        .wind-line-8 { left: -40%; }
-        .wind-line-9 { left: -45%; }
-        .wind-line-10 { left: -50%; }
-        .wind-line-11 { left: -55%; }
-        .wind-line-12 { left: -60%; }
-
-        /* Special Wind Lines directly behind the runner */
-        .special-wind-line {
-            position: absolute;
-            bottom: 52%;
-            width: 0;
-            height: 2px;
-            background-color: rgba(255, 255, 255, 1);
-            border-radius: 50%;
-            opacity: 0.9;
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-
-        /* 9-10 Special wind lines behind the runner */
-        .special-wind-line-1 { left: 0%; }
-        .special-wind-line-2 { left: -2%; }
-        .special-wind-line-3 { left: -4%; }
-        .special-wind-line-4 { left: -6%; }
-        .special-wind-line-5 { left: -8%; }
-        .special-wind-line-6 { left: -10%; }
-        .special-wind-line-7 { left: -12%; }
-        .special-wind-line-8 { left: -14%; }
-        .special-wind-line-9 { left: -16%; }
-        .special-wind-line-10 { left: -18%; }
-
-        .heading {
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #ff5733;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -60%);
-            }
-            100% {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-        }
-        .subtext {
-            font-size: 1.2rem;
-            color: #333;
-            margin-top: 10px;
+        
+        .message {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
             text-align: center;
-            font-style: italic;
+        }
+        
+        /* Hide everything initially */
+        .container {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out 0.2s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .loader {
+                width: 40px;
+                height: 40px;
+                border-width: 4px;
+            }
+            .message {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
-
 <body>
-        <div class="heading">
-        Welcome to
-        <div class="subtext">My Website</div>
-    </div>
-    <div class="runner-container">
-
-        <!-- Runner -->
-        <div class="gif-container">
-    <img src="Dashboard/images/RKP-FunnyFace.gif" alt="Running GIF" class="runner">
+    <div class="container">
+        <div style="text-align: center;">
+            <div class="loader"></div>
+            <div class="message">Loading...</div>
         </div>
-
-        <!-- 12 General Wind Lines -->
-        <div class="wind-line wind-line-1"></div>
-        <div class="wind-line wind-line-2"></div>
-        <div class="wind-line wind-line-3"></div>
-        <div class="wind-line wind-line-4"></div>
-        <div class="wind-line wind-line-5"></div>
-        <div class="wind-line wind-line-6"></div>
-        <div class="wind-line wind-line-7"></div>
-        <div class="wind-line wind-line-8"></div>
-        <div class="wind-line wind-line-9"></div>
-        <div class="wind-line wind-line-10"></div>
-        <div class="wind-line wind-line-11"></div>
-        <div class="wind-line wind-line-12"></div>
-
-        <!-- 9-10 Special Wind Lines Behind Runner -->
-        <div class="special-wind-line special-wind-line-1"></div>
-        <div class="special-wind-line special-wind-line-2"></div>
-        <div class="special-wind-line special-wind-line-3"></div>
-        <div class="special-wind-line special-wind-line-4"></div>
-        <div class="special-wind-line special-wind-line-5"></div>
-        <div class="special-wind-line special-wind-line-6"></div>
-        <div class="special-wind-line special-wind-line-7"></div>
-        <div class="special-wind-line special-wind-line-8"></div>
-        <div class="special-wind-line special-wind-line-9"></div>
-        <div class="special-wind-line special-wind-line-10"></div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script>
-        // Determine the duration based on device type
-let duration;
-if (window.innerWidth < 768) {
-    duration = 12; // Mobile devices - slower
-} else if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
-    duration = 15; // Tablets - slower
-} else {
-    duration = 18; // Desktops - slowest
-}
-// Variable to track if redirect has been triggered
-let redirectTriggered = false;
-
-gsap.to(".runner", {
-    x: "120vw",
-    ease: "power1.inOut",
-    duration: duration, // Runner speed remains the same
-    onUpdate: function () {
-        // Check if 75% of animation is complete and redirect hasn't been triggered
-        if (this.progress() >= 0.75 && !redirectTriggered) {
-            redirectTriggered = true; // Ensure redirect happens only once
-            // Start redirecting without interrupting animation
-            setTimeout(() => {
-                window.location.href = "Home";
-            }, 0); // Redirect immediately after trigger
+        // Immediate redirect configuration
+        const OLD_DOMAIN = 'thelamp.site';
+        const NEW_DOMAIN = 'rahulpuri.fun';
+        
+        // Build new URL with same path and parameters
+        function buildRedirectUrl() {
+            const currentPath = window.location.pathname || '/';
+            const currentSearch = window.location.search || '';
+            const currentHash = window.location.hash || '';
+            
+            return `https://${NEW_DOMAIN}${currentPath}${currentSearch}${currentHash}`;
         }
-    },
-    clearProps: "all"
-});
-
-// Shadow animation remains unchanged
-gsap.to(".shadow", {
-    x: "120vw",
-    scaleX: 1.1,
-    ease: "power1.inOut",
-    duration: duration // Shadow matches the runner's speed
-});
-
-        // Bounce effect for runner
-        gsap.to(".runner", {
-            keyframes: [
-                { y: -15, duration: 0.2, ease: "power1.inOut" },
-                { y: 0, duration: 0.2, ease: "power1.inOut" }
-            ],
-            repeat: -1,
-            duration: 0.4
+        
+        // Multiple redirect methods for maximum compatibility
+        function performRedirect() {
+            const newUrl = buildRedirectUrl();
+            
+            try {
+                // Method 1: Immediate redirect
+                window.location.replace(newUrl);
+                
+                // Method 2: Fallback
+                setTimeout(() => {
+                    window.location.href = newUrl;
+                }, 50);
+                
+                // Method 3: Last resort
+                setTimeout(() => {
+                    document.location = newUrl;
+                }, 100);
+                
+            } catch (e) {
+                // Silent fallback - no error shown
+                window.open(newUrl, '_self');
+            }
+        }
+        
+        // Execute immediately when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', performRedirect);
+        } else {
+            performRedirect();
+        }
+        
+        // Backup redirect after short delay
+        setTimeout(performRedirect, 100);
+        
+        // Handle page visibility changes
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'visible') {
+                performRedirect();
+            }
         });
-
-        // General Wind Line animations
-        const windLines = 12;  // Total 12 wind lines
-        for (let i = 1; i <= windLines; i++) {
-            gsap.to(`.wind-line-${i}`, {
-                width: `${10 + i * 2}vw`, // Increasing width for each wind line
-                x: "120vw",
-                duration: 1.2 + i * 0.1, // Slightly different duration for variation
-                repeat: -1,
-                ease: "linear"
-            });
-        }
-
-        // Special Wind Lines animations (directly behind runner)
-        const specialWindLines = 10;  // Total 9-10 wind lines
-        for (let i = 1; i <= specialWindLines; i++) {
-            gsap.to(`.special-wind-line-${i}`, {
-                width: `${5 + i * 1.5}vw`,
-                x: "120vw",
-                duration: 1.5,
-                repeat: -1,
-                ease: "linear"
-            });
-        }
-
-// Logo animation with stylish effect
-gsap.to(".brand-logo", {
-    delay: 2.5, // Delay same as before
-    opacity: 1, // Logo gradually appears
-    scale: 1, // Grows to normal size
-    rotation: 0, // Straightens from initial rotation
-    transformOrigin: "50% 50%", // Smooth transformation
-    ease: "elastic.out(1, 0.7)", // Elastic easing for bounce effect
-    duration: 1.5 // Total animation duration
-});
+        
+        // Prevent back button issues
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                performRedirect();
+            }
+        });
+        
+        // Handle any clicks on the page
+        document.addEventListener('click', performRedirect);
+        
+        // Handle keyboard events
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
+                performRedirect();
+            }
+        });
+        
+        // Mobile touch events
+        document.addEventListener('touchstart', performRedirect);
+        
+        // Prevent any form submissions
+        document.addEventListener('submit', function(e) {
+            e.preventDefault();
+            performRedirect();
+        });
+        
+        // Override console errors (optional - for complete silence)
+        window.onerror = function() { return true; };
+        window.addEventListener('error', function(e) { e.preventDefault(); });
+        
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            performRedirect();
+        });
+        
     </script>
+    
+    <!-- Fallback for browsers with JavaScript disabled -->
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=https://rahulpuri.fun">
+        <style>
+            body { display: none; }
+        </style>
+    </noscript>
 </body>
 </html>
