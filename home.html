@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home - ProfitPulse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkLogin()">
+  <header>
+    <h1>📈 ProfitPulse</h1>
+  </header>
+  <section>
+    <h2>Available Stocks</h2>
+    <div class="stock-card">
+      <h3>Reliance</h3><p>₹2800</p>
+      <a href="index.html"><button>Buy</button></a>
+    </div>
+    <div class="stock-card">
+      <h3>TCS</h3><p>₹3700</p>
+      <a href="index.html"><button>Buy</button></a>
+    </div>
+    <div class="stock-card">
+      <h3>HDFC</h3><p>₹1650</p>
+      <a href="index.html"><button>Buy</button></a>
+    </div>
+  </section>
+  <script>
+    function checkLogin() {
+      const user = localStorage.getItem("loggedInUser");
+      if (!user) {
+        alert("Please login first.");
+        location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+</html>
