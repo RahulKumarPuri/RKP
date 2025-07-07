@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Karndeep Stock Buy Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>📈 Karndeep Stock Simulator</h1>
+    <p>सिर्फ सीखने के लिए - रियल ट्रेडिंग नहीं</p>
+  </header>
+  <main>
+    <section id="stock-list">
+      <h2>शेयर सूची</h2>
+      <div id="stocks"></div>
+    </section>
+    <section id="portfolio-section">
+      <h2>🧾 आपका Portfolio</h2>
+      <ul id="portfolio"></ul>
+      <button onclick="exportPortfolio()">📤 Export CSV</button>
+      <button onclick="resetPortfolio()">♻️ Reset</button>
+    </section>
+  </main>
+  <footer>
+    Developed by <strong>Karndeep Baror</strong> |
+    <a href="https://instagram.com/karndeepbaror" target="_blank">@karndeepbaror</a>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
