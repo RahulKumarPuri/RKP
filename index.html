@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment - ProfitPulse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📈 ProfitPulse</h1>
+    <p>Secure Stock Purchase</p>
+  </header>
+
+  <section class="payment-section">
+    <h2>💳 Choose Your Payment Method</h2>
+    <div class="buttons">
+      <a href="upi://pay?pa=kkstart-up@ibl&pn=ProfitPulse&am=2800&cu=INR" class="pay-btn">Google Pay</a>
+      <a href="upi://pay?pa=kkstart-up@ibl&pn=ProfitPulse&am=2800&cu=INR" class="pay-btn">PhonePe</a>
+      <a href="upi://pay?pa=kkstart-up@ibl&pn=ProfitPulse&am=2800&cu=INR" class="pay-btn">Paytm</a>
+    </div>
+
+    <p class="upi-id">Or Pay to UPI ID: <strong>kkstart-up@ibl</strong></p>
+    <img src="qr-code.png" alt="Scan QR to Pay" class="qr-img" />
+
+    <label>Enter UPI Transaction ID:</label><br />
+    <input type="text" id="txnId" placeholder="e.g. 123456XYZ" />
+    <button onclick="submitPayment()">I Have Paid</button>
+  </section>
+
+  <div class="popup" id="popup" style="display:none;">
+    ✅ Payment Successful!<br />
+    Your transaction has been received and is under review.<br />
+    💸 Profit will be returned within 30–60 days.
+  </div>
+
+  <footer>
+    <p>© 2025 ProfitPulse | Simulated Trading Only</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
