@@ -37,13 +37,12 @@
     <p>© 2025 ProfitPulse | Simulated Trading Only</p>
   </footer>
   
-<script src="script.js"></script>
 <script>
-  const user = localStorage.getItem("loggedInUser");
-  if (!user) {
-    alert("Please login to access payment.");
-    location.href = "index.html";
-  }
-</script>
-</body>
-</html>
+  document.addEventListener("DOMContentLoaded", function () {
+    const user = localStorage.getItem("loggedInUser");
+    if (!user || user === "undefined" || user === "null") {
+      alert("Session expired. Please login again.");
+      window.location.href = "index.html";
+    }
+  });
+        </script>
