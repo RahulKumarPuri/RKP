@@ -1,0 +1,118 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #f0f0f0, #e2f0ff);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #1e2a38;
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5em;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+h1 {
+  font-size: 26px;
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+#stocks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.stock {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.stock:hover {
+  transform: scale(1.02);
+}
+
+button {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+#portfolio-section {
+  margin-top: 40px;
+}
+
+#portfolio {
+  list-style: none;
+  padding: 0;
+}
+
+.portfolio-item {
+  background: #fefefe;
+  border-left: 4px solid #0072ff;
+  margin: 10px 0;
+  padding: 12px 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+footer {
+  text-align: center;
+  background: #1e2a38;
+  color: #fff;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+a {
+  color: #00e0ff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+#login-form {
+  max-width: 350px;
+  margin: 40px auto;
+  text-align: center;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
