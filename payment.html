@@ -36,7 +36,15 @@
   <footer>
     <p>© 2025 ProfitPulse | Simulated Trading Only</p>
   </footer>
-
-  <script src="script.js"></script>
+  
+<script src="script.js"></script>
+<script>
+  const user = localStorage.getItem("loggedInUser");
+  if (!user) {
+    alert("Please login to access payment.");
+    location.href = "index.html";
+  }
+</script>
+</body>
 </body>
 </html>
