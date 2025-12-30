@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Happy New Year 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Indie+Flower&family=Caveat:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#2a003d,#05000d);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+  color:#fff;
+}
+
+body::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 10% 20%,rgba(255,255,255,.06),transparent 60%),
+    radial-gradient(circle at 90% 80%,rgba(255,0,150,.12),transparent 60%);
+  opacity:.9;
+  pointer-events:none;
+}
+
+/* SCREENS */
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:all .7s cubic-bezier(.68,-.55,.265,1.55);
+  opacity:1;
+  transform:scale(1);
+}
+
+.screen.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:scale(.85);
+}
+
+/* WATERMARK */
+.watermark{
+  position:absolute;
+  right:16px;
+  bottom:18px;
+  font-size:.7rem;
+  letter-spacing:.6px;
+  color:rgba(255,255,255,.35);
+  z-index:999;
+}
+
+/* ========== SCREEN 1 STYLES ========== */
+.card{
+  position:relative;
+  max-width:330px;
+  width:88%;
+  padding:46px 36px 40px;
+  border-radius:32px;
+  background:rgba(10,0,20,.75);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.7),
+    inset 0 1px 0 rgba(255,255,255,.18);
+  backdrop-filter:blur(26px);
+  text-align:center;
+  overflow:hidden;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  left:-40px;
+  bottom:-40px;
+  width:140px;
+  height:140px;
+  border-radius:40px;
+  background:radial-gradient(circle at top left,rgba(255,105,180,.35),transparent 70%);
+}
+
+.card::after{
+  content:'';
+  position:absolute;
+  top:-60%;
+  left:-60%;
+  width:220%;
+  height:220%;
+  background:linear-gradient(45deg,transparent 35%,rgba(255,255,255,.1) 50%,transparent 65%);
+  transform:translateX(-100%) rotate(12deg);
+  animation:shine 7s ease-in-out infinite;
+}
+
+@keyframes shine{
+  0%,40%{transform:translateX(-120%) rotate(12deg);}
+  60%{transform:translateX(20%) rotate(12deg);}
+  100%{transform:translateX(120%) rotate(12deg);}
+}
+
+.title{
+  position:relative;
+  font-size:1.45rem;
+  font-weight:600;
+  margin-bottom:6px;
+  letter-spacing:.5px;
+  text-shadow:0 0 16px rgba(255,120,220,.6);
+}
+
+.subtitle{
+  position:relative;
+  font-size:.93rem;
+  font-weight:300;
+  opacity:.8;
+  margin-bottom:38px;
+}
+
+.heart-wrap{
+  position:relative;
+  width:140px;
+  height:140px;
+  margin:0 auto 32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.progress-ring{
+  position:absolute;
+  inset:0;
+  transform:rotate(-90deg);
+  opacity:0;
+  transition:opacity .25s ease;
+}
+
+.progress-ring.active{
+  opacity:1;
+}
+
+.progress-ring circle{
+  fill:transparent;
+  stroke-width:4.5;
+  stroke-linecap:round;
+}
+
+.progress-track{
+  stroke:rgba(255,255,255,.08);
+}
+
+.progress-value{
+  stroke:url(#grad);
+  filter:drop-shadow(0 0 7px rgba(255,105,180,.9));
+  stroke-dasharray:408.4;
+  stroke-dashoffset:408.4;
+  transition:stroke-dashoffset .08s linear;
+}
+
+.heart{
+  position:relative;
+  width:86px;
+  height:86px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 20%,#ff9ad0 0%,#ff4f9a 35%,#ff1f6b 70%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+  cursor:pointer;
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.65),
+    0 0 25px rgba(255,77,136,.9);
+  user-select:none;
+  z-index:2;
+  animation:heartIdle 2.1s ease-in-out infinite;
+}
+
+@keyframes heartIdle{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+}
+
+.heart.holding{
+  animation:heartHold .9s ease-in-out infinite;
+}
+
+@keyframes heartHold{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+}
+
+.instruction{
+  position:relative;
+  font-size:.88rem;
+  font-weight:400;
+  letter-spacing:.4px;
+  color:rgba(255,255,255,.7);
+  animation:blink 1.9s ease-in-out infinite;
+}
+
+@keyframes blink{
+  0%,100%{opacity:.55;}
+  50%{opacity:1;}
+}
+
+/* ========== SCREEN 2 STYLES ========== */
+.heading{
+  font-size:1.5rem;
+  font-weight:600;
+  margin-bottom:8px;
+  text-align:center;
+  text-shadow:0 0 18px rgba(255,120,220,.7);
+  position:relative;
+  z-index:10;
+}
+
+.desc{
+  font-size:.9rem;
+  font-weight:300;
+  opacity:.75;
+  margin-bottom:50px;
+  text-align:center;
+  position:relative;
+  z-index:10;
+}
+
+.cards-area{
+  position:relative;
+  width:280px;
+  height:320px;
+  margin:0 auto;
+}
+
+.dist-card{
+  position:absolute;
+  width:140px;
+  height:150px;
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  font-weight:600;
+  color:#333;
+  cursor:pointer;
+  transition:all .6s cubic-bezier(.68,-.55,.265,1.55);
+  box-shadow:0 12px 35px rgba(0,0,0,.35);
+  transform-origin:center;
+}
+
+.dist-card .icon{
+  font-size:2.2rem;
+  margin-bottom:8px;
+}
+
+.dist-card.clicked{
+  opacity:0;
+  pointer-events:none;
+}
+
+.dist-card:nth-child(1){
+  background:linear-gradient(135deg,#ffc7ee,#ffb3e3);
+  left:15px;
+  top:15px;
+  z-index:4;
+  transform:rotate(-8deg);
+}
+
+.dist-card:nth-child(2){
+  background:linear-gradient(135deg,#fff9a3,#ffe880);
+  right:15px;
+  top:15px;
+  z-index:3;
+  transform:rotate(8deg);
+}
+
+.dist-card:nth-child(3){
+  background:linear-gradient(135deg,#ffd3a3,#ffb88c);
+  left:15px;
+  bottom:15px;
+  z-index:2;
+  transform:rotate(6deg);
+}
+
+.dist-card:nth-child(4){
+  background:linear-gradient(135deg,#cfe5ff,#a8d8ff);
+  right:15px;
+  bottom:15px;
+  z-index:1;
+  transform:rotate(-6deg);
+}
+
+.dist-card:nth-child(1).clicked{
+  transform:translateX(-200px) translateY(-100px) rotate(-45deg) scale(.4);
+}
+
+.dist-card:nth-child(2).clicked{
+  transform:translateX(200px) translateY(-100px) rotate(45deg) scale(.4);
+}
+
+.dist-card:nth-child(3).clicked{
+  transform:translateX(-200px) translateY(200px) rotate(45deg) scale(.4);
+}
+
+.dist-card:nth-child(4).clicked{
+  transform:translateX(200px) translateY(200px) rotate(-45deg) scale(.4);
+}
+
+.gift-card{
+  position:absolute;
+  width:110px;
+  height:110px;
+  background:linear-gradient(135deg,#ff6b9d,#ff1f6b);
+  border-radius:24px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-size:3rem;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) scale(0);
+  cursor:pointer;
+  box-shadow:
+    0 0 0 0 rgba(255,79,154,.9),
+    0 18px 45px rgba(0,0,0,.6);
+  animation:giftGlow 2s ease-in-out infinite;
+  z-index:5;
+}
+
+.gift-card.show{
+  display:flex;
+  animation:giftPop .7s cubic-bezier(.68,-.55,.265,1.55) forwards, giftGlow 2s ease-in-out infinite;
+}
+
+@keyframes giftPop{
+  0%{transform:translate(-50%,-50%) scale(0) rotate(0deg);}
+  60%{transform:translate(-50%,-50%) scale(1.15) rotate(180deg);}
+  100%{transform:translate(-50%,-50%) scale(1) rotate(360deg);}
+}
+
+@keyframes giftGlow{
+  0%,100%{
+    box-shadow:
+      0 0 20px rgba(255,79,154,1),
+      0 0 40px rgba(255,79,154,.7),
+      0 18px 45px rgba(0,0,0,.6);
+  }
+  50%{
+    box-shadow:
+      0 0 35px rgba(255,79,154,1),
+      0 0 70px rgba(255,79,154,.9),
+      0 18px 45px rgba(0,0,0,.6);
+  }
+}
+
+/* ========== SCREEN 3: GOLDEN TICKET ========== */
+.ticket-container{
+  position:relative;
+  max-width:340px;
+  width:88%;
+}
+
+.golden-ticket{
+  position:relative;
+  background:linear-gradient(135deg,#1a2a4e,#0d1525);
+  border:4px solid;
+  border-image:linear-gradient(135deg,#ffd700,#ffed4e,#ffd700) 1;
+  border-radius:28px;
+  padding:45px 35px;
+  text-align:center;
+  box-shadow:
+    0 0 40px rgba(255,215,0,.6),
+    0 20px 60px rgba(0,0,0,.7),
+    inset 0 1px 0 rgba(255,215,0,.3);
+  animation:ticketAppear .8s cubic-bezier(.68,-.55,.265,1.55);
+}
+
+@keyframes ticketAppear{
+  0%{transform:scale(0) rotate(-180deg);opacity:0;}
+  60%{transform:scale(1.1) rotate(10deg);opacity:1;}
+  100%{transform:scale(1) rotate(0);}
+}
+
+.ticket-icon{
+  width:70px;
+  height:70px;
+  margin:0 auto 20px;
+  background:linear-gradient(135deg,#9b7e3d,#6b5a2d);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.5rem;
+  box-shadow:0 8px 25px rgba(0,0,0,.5);
+}
+
+.ticket-title{
+  font-size:1.8rem;
+  font-weight:700;
+  color:#ffd700;
+  margin-bottom:12px;
+  letter-spacing:2px;
+  text-shadow:0 0 20px rgba(255,215,0,.8);
+}
+
+.ticket-valid{
+  font-size:.85rem;
+  color:rgba(255,255,255,.6);
+  margin-bottom:20px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.ticket-message{
+  font-size:1.15rem;
+  font-style:italic;
+  color:#fff;
+  margin-bottom:10px;
+  font-weight:400;
+}
+
+.ticket-expire{
+  font-size:.8rem;
+  color:rgba(255,255,255,.5);
+  margin-bottom:30px;
+}
+
+.claim-btn{
+  background:linear-gradient(135deg,#ffd700,#ffed4e);
+  color:#000;
+  padding:14px 40px;
+  border-radius:50px;
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:1px;
+  cursor:pointer;
+  border:none;
+  box-shadow:0 10px 30px rgba(255,215,0,.5);
+  transition:all .3s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.claim-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(255,215,0,.7);
+}
+
+.claim-btn:active{
+  transform:translateY(0);
+}
+
+/* ========== SCREEN 4: PHOTO GALLERY ========== */
+.gallery-heading{
+  font-size:1.4rem;
+  font-weight:600;
+  margin-bottom:30px;
+  text-align:center;
+  text-shadow:0 0 18px rgba(255,120,220,.7);
+}
+
+.photo-stack{
+  position:relative;
+  width:280px;
+  height:360px;
+  margin:0 auto;
+  perspective:1000px;
+}
+
+.photo-card{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  cursor:grab;
+  user-select:none;
+  transition:all .5s cubic-bezier(.68,-.55,.265,1.55);
+  transform-origin:center center;
+}
+
+.photo-card:active{
+  cursor:grabbing;
+}
+
+.photo-card.swiped{
+  pointer-events:none;
+}
+
+.photo-inner{
+  width:100%;
+  height:100%;
+  border-radius:20px;
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  position:relative;
+  overflow:hidden;
+}
+
+.photo-number{
+  font-size:4rem;
+  font-weight:700;
+  color:rgba(255,255,255,.3);
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.photo-text{
+  position:relative;
+  z-index:2;
+  font-size:1.5rem;
+  font-weight:600;
+  color:#fff;
+  text-shadow:0 2px 10px rgba(0,0,0,.3);
+}
+
+.swipe-hint{
+  margin-top:25px;
+  font-size:.85rem;
+  color:rgba(255,255,255,.6);
+  text-align:center;
+  animation:blink 1.9s ease-in-out infinite;
+}
+
+.photo-card:nth-child(1) .photo-inner{
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+}
+
+.photo-card:nth-child(2) .photo-inner{
+  background:linear-gradient(135deg,#a8edea,#fed6e3);
+}
+
+.photo-card:nth-child(3) .photo-inner{
+  background:linear-gradient(135deg,#ffecd2,#fcb69f);
+}
+
+.photo-card:nth-child(4) .photo-inner{
+  background:linear-gradient(135deg,#d299c2,#fef9d7);
+}
+
+/* ========== SCREEN 5: BOOK ANIMATION ========== */
+#screen5{
+  font-family:'Patrick Hand',cursive;
+}
+
+.book-header{
+  text-align:center;
+  margin-bottom:30px;
+  z-index:10;
+  animation:fadeInDown 1s ease-out;
+}
+
+.book-header h1{
+  font-size:2.5em;
+  font-family:'Dancing Script',cursive;
+  text-shadow:0 0 20px rgba(255,182,193,.8),
+              0 0 40px rgba(255,182,193,.4);
+  margin-bottom:10px;
+}
+
+.book-header p{
+  color:#b8a4d4;
+  font-size:1.1em;
+  letter-spacing:2px;
+}
+
+.book-container{
+  perspective:2000px;
+  width:350px;
+  height:500px;
+  position:relative;
+  z-index:10;
+  cursor:pointer;
+}
+
+.book{
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:transform 1.2s cubic-bezier(.68,-.55,.265,1.55);
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.book.flipped{
+  transform:rotateY(-180deg);
+}
+
+.book-cover,
+.book-page{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.book-cover{
+  background:linear-gradient(135deg,#9b59b6 0%,#8e44ad 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:8px solid #c084fc;
+  box-shadow:
+    0 0 30px rgba(192,132,252,.6),
+    inset 0 0 20px rgba(255,255,255,.1);
+}
+
+.cover-placeholder{
+  width:90%;
+  height:90%;
+  background:linear-gradient(135deg,#fef5e7 0%,#fdebd0 100%);
+  border-radius:5px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.cover-placeholder h2{
+  font-family:'Caveat',cursive;
+  font-size:2.5em;
+  color:#8B4513;
+  margin-bottom:20px;
+  text-shadow:2px 2px 4px rgba(0,0,0,.1);
+}
+
+.cover-placeholder p{
+  font-size:1.2em;
+  color:#666;
+  font-family:'Indie Flower',cursive;
+}
+
+.book-page{
+  transform:rotateY(180deg);
+  background:linear-gradient(135deg,#fef9e7 0%,#fef5e7 100%);
+  border:8px solid #c084fc;
+  padding:40px 30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  box-shadow:
+    0 0 30px rgba(192,132,252,.6),
+    inset 0 0 30px rgba(255,255,255,.5);
+}
+
+.page-content{
+  font-family:'Indie Flower',cursive;
+  color:#2c3e50;
+  line-height:1.8;
+  font-size:1.05em;
+  text-align:left;
+}
+
+.page-content p{
+  margin-bottom:20px;
+  animation:fadeIn .5s ease-in;
+}
+
+.page-content p:first-child{
+  animation-delay:.3s;
+}
+
+.page-content p:last-child{
+  animation-delay:.6s;
+}
+
+.book-container:hover .book{
+  transform:scale(1.05) translateY(-10px);
+  box-shadow:0 30px 80px rgba(192,132,252,.4);
+}
+
+.book-container:hover .book.flipped{
+  transform:scale(1.05) translateY(-10px) rotateY(-180deg);
+}
+
+.tap-hint{
+  position:absolute;
+  bottom:-60px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#b8a4d4;
+  font-size:.9em;
+  animation:bounce 2s infinite;
+  opacity:.7;
+}
+
+@keyframes bounce{
+  0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0);}
+  40%{transform:translateX(-50%) translateY(-10px);}
+  60%{transform:translateX(-50%) translateY(-5px);}
+}
+
+@keyframes fadeInDown{
+  from{
+    opacity:0;
+    transform:translateY(-30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* CONFETTI */
+.confetti{
+  position:fixed;
+  width:10px;
+  height:10px;
+  pointer-events:none;
+  z-index:9999;
+}
+
+@keyframes confettiFall{
+  0%{
+    transform:translateY(-20vh) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(120vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+/* STARS */
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+  opacity:.7;
+  animation:twinkle 3.4s ease-in-out infinite;
+}
+
+@keyframes twinkle{
+  0%,100%{transform:scale(0);opacity:0;}
+  40%{transform:scale(1.2);opacity:.9;}
+}
+
+/* RESPONSIVE */
+@media(max-width:400px){
+  .card{padding:40px 28px 34px;border-radius:28px;}
+  .title{font-size:1.3rem;}
+  .subtitle{font-size:.85rem;margin-bottom:32px;}
+  .heart-wrap{width:130px;height:130px;}
+  .heart{width:80px;height:80px;font-size:36px;}
+  .heading{font-size:1.35rem;}
+  .desc{font-size:.85rem;margin-bottom:40px;}
+  .cards-area{width:260px;height:300px;}
+  .dist-card{width:130px;height:140px;}
+  .dist-card .icon{font-size:2rem;}
+  .gift-card{width:100px;height:100px;font-size:2.7rem;}
+  .golden-ticket{padding:38px 28px;border-radius:24px;}
+  .ticket-title{font-size:1.6rem;}
+  .ticket-icon{width:65px;height:65px;font-size:2.2rem;}
+  .photo-stack{width:260px;height:340px;}
+  .gallery-heading{font-size:1.3rem;}
+  .book-container{width:280px;height:400px;}
+  .book-header h1{font-size:2em;}
+  .book-page{padding:30px 20px;}
+  .page-content{font-size:.95em;}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== SCREEN 1 ========== -->
+<div class="screen" id="screen1">
+  <div class="card">
+    <h2 class="title">A little surprise for you</h2>
+    <p class="subtitle">Before this year begins</p>
+
+    <div class="heart-wrap" id="holdArea">
+      <svg class="progress-ring" width="140" height="140">
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff9ad0"/>
+            <stop offset="50%" stop-color="#ff4f9a"/>
+            <stop offset="100%" stop-color="#ffd1ff"/>
+          </linearGradient>
+        </defs>
+        <circle class="progress-track" cx="70" cy="70" r="65"></circle>
+        <circle class="progress-value" id="pCircle" cx="70" cy="70" r="65"></circle>
+      </svg>
+
+      <div class="heart" id="heart">❤</div>
+    </div>
+
+    <p class="instruction">Tap and hold</p>
+  </div>
+</div>
+
+<!-- ========== SCREEN 2 ========== -->
+<div class="screen hidden" id="screen2">
+  <h2 class="heading">Something is waiting for you</h2>
+  <p class="desc">Move the little distractions aside</p>
+
+  <div class="cards-area">
+    <div class="dist-card" data-name="bad-days">
+      <div class="icon">☔</div>
+      <div>Bad Days</div>
+    </div>
+    <div class="dist-card" data-name="stress">
+      <div class="icon">⚙️</div>
+      <div>Stress</div>
+    </div>
+    <div class="dist-card" data-name="work">
+      <div class="icon">💼</div>
+      <div>Work</div>
+    </div>
+    <div class="dist-card" data-name="distance">
+      <div class="icon">📍</div>
+      <div>Distance</div>
+    </div>
+
+    <div class="gift-card" id="giftCard">🎁</div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 3: GOLDEN TICKET ========== -->
+<div class="screen hidden" id="screen3">
+  <div class="ticket-container">
+    <div class="golden-ticket">
+      <div class="ticket-icon">🎟️</div>
+      <h3 class="ticket-title">GOLDEN TICKET</h3>
+      <p class="ticket-valid">Valid for every day ahead</p>
+      <p class="ticket-message">"Unlimited Love & Smiles"</p>
+      <p class="ticket-expire">No expiration date</p>
+      <button class="claim-btn" id="claimBtn">
+        CLAIM TICKET
+        <span>›</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 4: PHOTO GALLERY ========== -->
+<div class="screen hidden" id="screen4">
+  <h2 class="gallery-heading">Some moments from this year</h2>
+  
+  <div class="photo-stack" id="photoStack">
+    <div class="photo-card" data-photo="4">
+      <div class="photo-inner">
+        <div class="photo-number">4</div>
+        <div class="photo-text">Memory 4</div>
+      </div>
+    </div>
+    <div class="photo-card" data-photo="3">
+      <div class="photo-inner">
+        <div class="photo-number">3</div>
+        <div class="photo-text">Memory 3</div>
+      </div>
+    </div>
+    <div class="photo-card" data-photo="2">
+      <div class="photo-inner">
+        <div class="photo-number">2</div>
+        <div class="photo-text">Memory 2</div>
+      </div>
+    </div>
+    <div class="photo-card" data-photo="1">
+      <div class="photo-inner">
+        <div class="photo-number">1</div>
+        <div class="photo-text">Memory 1</div>
+      </div>
+    </div>
+  </div>
+  
+  <p class="swipe-hint">Tap the photo to continue</p>
+</div>
+
+<!-- ========== SCREEN 5: BOOK ANIMATION ========== -->
+<div class="screen hidden" id="screen5">
+  <div class="book-header">
+    <h1>For my Cutiepie :)</h1>
+    <p>Tap the card to read</p>
+  </div>
+
+  <div class="book-container" id="bookContainer">
+    <div class="book" id="book">
+      <div class="book-cover">
+        <div class="cover-placeholder">
+          <h2>HAPPY NEW YEAR 2026</h2>
+          <p>🎉 ✨ 🎊</p>
+        </div>
+      </div>
+
+      <div class="book-page">
+        <div class="page-content">
+          <p>I hope this year brings you calm mornings, peaceful nights, and little moments that make you smile without any reason.</p>
+          
+          <p>No matter what this year holds for you, I hope you always feel supported, valued, and understood. May every challenge turn into strength.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tap-hint">👆 Click to flip</div>
+  </div>
+</div>
+
+<div class="watermark">@sanjivbuilds</div>
+
+<script>
+// ========== SCREEN 1 LOGIC ==========
+const circle = document.getElementById('pCircle');
+const radius = circle.r.baseVal.value;
+const circumference = 2 * Math.PI * radius;
+circle.style.strokeDasharray = `${circumference}`;
+circle.style.strokeDashoffset = `${circumference}`;
+
+function setProgress(percent){
+  const offset = circumference - percent / 100 * circumference;
+  circle.style.strokeDashoffset = offset;
+}
+
+const heart = document.getElementById('heart');
+const ring  = document.querySelector('.progress-ring');
+
+let startTime = null;
+let rafId = null;
+const HOLD_MS = 900;
+
+function startHold(){
+  if(startTime) return;
+  startTime = performance.now();
+  ring.classList.add('active');
+  heart.classList.add('holding');
+  animate();
+}
+
+function endHold(cancel = true){
+  if(!startTime) return;
+  cancelAnimationFrame(rafId);
+  heart.classList.remove('holding');
+
+  if(cancel){
+    setProgress(0);
+    ring.classList.remove('active');
+  }
+  startTime = null;
+}
+
+function animate(now){
+  if(!startTime) return;
+  const elapsed = now - startTime;
+  const progress = Math.min(elapsed / HOLD_MS * 100, 100);
+  setProgress(progress);
+
+  if(progress >= 100){
+    ring.classList.add('active');
+    endHold(false);
+    showScreen(2);
+    return;
+  }
+  rafId = requestAnimationFrame(animate);
+}
+
+heart.addEventListener('mousedown', e=>{
+  e.preventDefault();
+  startHold();
+});
+heart.addEventListener('mouseup', ()=>endHold(true));
+heart.addEventListener('mouseleave', ()=>endHold(true));
+
+heart.addEventListener('touchstart', e=>{
+  e.preventDefault();
+  startHold();
+},{passive:false});
+
+heart.addEventListener('touchend', ()=>endHold(true));
+heart.addEventListener('touchcancel', ()=>endHold(true));
+heart.addEventListener('contextmenu', e=>e.preventDefault());
+
+// ========== SCREEN 2 LOGIC ==========
+const distCards = document.querySelectorAll('.dist-card');
+const giftCard = document.getElementById('giftCard');
+let removedCount = 0;
+
+distCards.forEach(card => {
+  card.addEventListener('click', function(){
+    if(this.classList.contains('clicked')) return;
+    
+    this.classList.add('clicked');
+    removedCount++;
+
+    if(removedCount === 4){
+      setTimeout(() => {
+        giftCard.classList.add('show');
+      }, 400);
+    }
+  });
+});
+
+giftCard.addEventListener('click', function(){
+  createConfetti();
+  setTimeout(() => {
+    showScreen(3);
+  }, 500);
+});
+
+// ========== SCREEN 3 LOGIC ==========
+const claimBtn = document.getElementById('claimBtn');
+
+claimBtn.addEventListener('click', function(){
+  createConfetti();
+  setTimeout(() => {
+    showScreen(4);
+    initPhotoSwipe();
+  }, 500);
+});
+
+// ========== SCREEN 4: PHOTO SWIPE LOGIC ==========
+let currentPhotoIndex = 0;
+const photoCards = document.querySelectorAll('.photo-card');
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let currentX = 0;
+let currentY = 0;
+
+function initPhotoSwipe(){
+  photoCards.forEach((card, index) => {
+    card.style.zIndex = photoCards.length - index;
+    card.style.transform = `scale(${1 - index * 0.05}) translateY(${index * 10}px)`;
+  });
+
+  const topCard = photoCards[currentPhotoIndex];
+  
+  topCard.addEventListener('mousedown', handleStart);
+  document.addEventListener('mousemove', handleMove);
+  document.addEventListener('mouseup', handleEnd);
+  
+  topCard.addEventListener('touchstart', handleStart, {passive: false});
+  document.addEventListener('touchmove', handleMove, {passive: false});
+  document.addEventListener('touchend', handleEnd);
+  
+  topCard.addEventListener('click', (e) => {
+    if(!isDragging){
+      swipeCard(topCard, 'right');
+    }
+  });
+}
+
+function handleStart(e){
+  if(currentPhotoIndex >= photoCards.length) return;
+  
+  isDragging = true;
+  const pos = e.type.includes('mouse') ? e : e.touches[0];
+  startX = pos.clientX;
+  startY = pos.clientY;
+  
+  photoCards[currentPhotoIndex].style.transition = 'none';
+}
+
+function handleMove(e){
+  if(!isDragging) return;
+  e.preventDefault();
+  
+  const pos = e.type.includes('mouse') ? e : e.touches[0];
+  currentX = pos.clientX - startX;
+  currentY = pos.clientY - startY;
+  
+  const rotation = currentX / 20;
+  photoCards[currentPhotoIndex].style.transform = 
+    `translate(${currentX}px, ${currentY}px) rotate(${rotation}deg)`;
+}
+
+function handleEnd(e){
+  if(!isDragging) return;
+  isDragging = false;
+  
+  const threshold = 100;
+  
+  if(Math.abs(currentX) > threshold){
+    const direction = currentX > 0 ? 'right' : 'left';
+    swipeCard(photoCards[currentPhotoIndex], direction);
+  } else {
+    photoCards[currentPhotoIndex].style.transition = 'transform 0.3s ease';
+    photoCards[currentPhotoIndex].style.transform = '';
+  }
+  
+  currentX = 0;
+  currentY = 0;
+}
+
+function swipeCard(card, direction){
+  const moveX = direction === 'right' ? 500 : -500;
+  card.style.transition = 'all 0.5s ease';
+  card.style.transform = `translateX(${moveX}px) rotate(${direction === 'right' ? 30 : -30}deg)`;
+  card.style.opacity = 0;
+  card.classList.add('swiped');
+  
+  currentPhotoIndex++;
+  
+  if(currentPhotoIndex < photoCards.length){
+    setTimeout(() => {
+      initPhotoSwipe();
+    }, 200);
+  } else {
+    createConfetti();
+    setTimeout(() => {
+      showScreen(5);
+      initBook();
+    }, 800);
+  }
+}
+
+// ========== SCREEN 5: BOOK LOGIC ==========
+function initBook(){
+  const book = document.getElementById('book');
+  const bookContainer = document.getElementById('bookContainer');
+  
+  bookContainer.addEventListener('click', function(){
+    book.classList.toggle('flipped');
+  });
+  
+  let touchStartX = 0;
+  bookContainer.addEventListener('touchstart', function(e){
+    touchStartX = e.touches[0].clientX;
+  });
+  
+  bookContainer.addEventListener('touchend', function(e){
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    
+    if(Math.abs(diff) > 50){
+      book.classList.toggle('flipped');
+    }
+  });
+}
+
+// ========== CONFETTI ANIMATION ==========
+function createConfetti(){
+  const colors = ['#ffd700','#ff6b9d','#4facfe','#00f2fe','#ff8c00','#c44569'];
+  
+  for(let i=0; i<80; i++){
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.top = Math.random() * 20 + 'vh';
+    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.width = (Math.random() * 8 + 5) + 'px';
+    confetti.style.height = confetti.style.width;
+    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    confetti.style.animation = `confettiFall ${Math.random() * 2 + 2}s linear forwards`;
+    confetti.style.animationDelay = Math.random() * 0.3 + 's';
+    
+    document.body.appendChild(confetti);
+    
+    setTimeout(() => {
+      confetti.remove();
+    }, 4000);
+  }
+}
+
+// ========== SCREEN SWITCHER ==========
+function showScreen(num){
+  document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+  document.getElementById('screen' + num).classList.remove('hidden');
+}
+
+// ========== STARS ==========
+for(let i=0;i<100;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  s.style.left=Math.random()*100+'%';
+  s.style.top=Math.random()*100+'%';
+  s.style.animationDelay=(Math.random()*4)+'s';
+  s.style.opacity=Math.random()*0.9+0.1;
+  document.body.appendChild(s);
+}
+</script>
+</body>
+</html>
