@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>New Year – Healing Message 🌿</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  overflow:hidden;
+  background:linear-gradient(135deg,#16222A,#3A6073);
+  color:white;
+  text-align:center;
+}
+
+/* Start Screen */
+#start{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+
+#start button{
+  padding:14px 35px;
+  font-size:20px;
+  border:none;
+  border-radius:30px;
+  background:#ffd89b;
+  cursor:pointer;
+}
+
+/* Main */
+#main{
+  display:none;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.card{
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(10px);
+  border-radius:25px;
+  padding:30px;
+  max-width:420px;
+  box-shadow:0 0 30px rgba(255,255,255,0.2);
+  animation:fade 2s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+h1{
+  font-size:30px;
+  margin-bottom:10px;
+  text-shadow:0 0 15px #ffd700;
+}
+
+p{
+  font-size:17px;
+  line-height:1.7;
+}
+
+hr{
+  border:0;
+  height:1px;
+  background:rgba(255,255,255,0.3);
+  margin:20px 0;
+}
+
+/* Floating lights */
+.light{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  opacity:0.6;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh);opacity:0;}
+  20%{opacity:0.6;}
+  100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- START -->
+<div id="start">
+  <h2>Tap here 🌸</h2>
+  <button onclick="start()">आगे बढ़ें</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <div class="card">
+    <h1>नया साल, नई शांति 🌿</h1>
+
+    <p>
+      जब जीवन में कोई साथ छोड़ देता है,  
+      तब समझ लेना चाहिए कि  
+      ईश्वर हमें खुद से जोड़ने का समय दे रहे हैं।
+    </p>
+
+    <hr>
+
+    <p>
+      <b>प्रेमानंद बाबा के भावों में 🤍</b><br><br>
+      "जो चला गया, उसे रोकना मत।  
+      क्योंकि जो रुकने लायक होता है,  
+      वह कभी छोड़कर नहीं जाता।"
+    </p>
+
+    <hr>
+
+    <p>
+      बीता हुआ दर्द  
+      आने वाली समझ बनता है।  
+      यह नया साल  
+      तुम्हें सुकून, स्थिरता  
+      और आत्म-विश्वास दे 🌸
+    </p>
+
+    <p style="margin-top:15px;">
+      ✨ Happy New Year ✨<br>
+      ईश्वर तुम्हें शांति दे।
+    </p>
+  </div>
+</div>
+
+<script>
+function start(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("main").style.display="flex";
+}
+
+/* floating lights */
+setInterval(()=>{
+  let l=document.createElement("div");
+  l.className="light";
+  l.style.left=Math.random()*100+"vw";
+  l.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(l);
+  setTimeout(()=>l.remove(),6000);
+},400);
+</script>
+
+</body>
+</html>
