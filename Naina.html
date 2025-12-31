@@ -1,0 +1,59 @@
+<body>
+
+<!-- Screen 1 -->
+<div class="screen" id="s1">
+  <h1>Happy New Year Naina 🎉💖</h1>
+  <p>
+    Ek chhoti si website…  
+    sirf us best friend ke liye  
+    jo meri life ka sabse pyara hissa hai 💕
+  </p>
+  <button onclick="next()">Tap Here Naina ✨</button>
+</div>
+
+<!-- Screen 2 -->
+<div class="screen hidden" id="s2">
+  <img src="naina.jpg" class="photo">
+  <h1>Meri Bestie 💫</h1>
+  <p>
+    Naina, tu sirf meri dost nahi hai…  
+    tu meri hasi, meri strength  
+    aur meri har kahani ka sabse khoobsurat part hai 💗
+  </p>
+  <button onclick="next()">Aage Dekho 💌</button>
+</div>
+
+<!-- Screen 3 -->
+<div class="screen hidden" id="s3">
+  <div class="cards">
+    <div class="card">💖 Hamesha saath</div>
+    <div class="card">😂 Pagal si hasi</div>
+    <div class="card">🤍 Bina judge kiye samajhna</div>
+  </div>
+  <button onclick="next()">Ek Last Surprise 🎁</button>
+</div>
+
+<!-- Screen 4 -->
+<div class="screen hidden" id="s4">
+  <h1>2025 Wish ✨</h1>
+  <p class="ticket">
+    Naina, is naye saal mein  
+    teri har wish poori ho 🌸  
+    tu hamesha khush rahe, muskurati rahe  
+    aur main hamesha teri bestie rahun 💞
+  </p>
+  <div class="gift">🎁💖</div>
+</div>
+
+<div class="watermark">Made with 💕 by your best friend</div>
+
+<script>
+let current = 1;
+function next(){
+  document.getElementById("s"+current).classList.add("hidden");
+  current++;
+  document.getElementById("s"+current).classList.remove("hidden");
+}
+</script>
+
+</body>
