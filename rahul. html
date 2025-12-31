@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rahul 😂🔥</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Comic Neue',cursive;
+  background:linear-gradient(135deg,#000,#2b2b2b);
+  color:#fff;
+  height:100vh;
+  overflow:hidden;
+}
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+.hidden{display:none;}
+
+h1{font-size:42px;margin-bottom:15px;}
+p{font-size:18px;max-width:340px;margin-bottom:20px;}
+
+button{
+  padding:12px 28px;
+  border:none;
+  border-radius:25px;
+  background:#ffcc00;
+  color:#000;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.photo{
+  width:160px;
+  height:160px;
+  border-radius:20px;
+  object-fit:cover;
+  border:4px solid #ffcc00;
+  margin-bottom:15px;
+}
+
+.badge{
+  background:#ff0055;
+  padding:6px 15px;
+  border-radius:20px;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+/* floating emojis */
+.emoji{
+  position:absolute;
+  font-size:22px;
+  animation:up 6s linear infinite;
+}
+@keyframes up{
+  from{transform:translateY(100vh);opacity:1;}
+  to{transform:translateY(-20vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="screen" id="s1">
+  <h1>Warning ⚠️</h1>
+  <p>Is website ko dekhne ke baad  
+  Rahul ka attitude aur demand aur badh sakta hai 😂</p>
+  <button onclick="next(1)">I Accept 😎</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen hidden" id="s2">
+  <img src="Snapchat-1333340901.jpg" class="photo">
+  <div class="badge">🔥 Girls Favourite 🔥</div>
+  <h1>Rahul 😌</h1>
+  <p>
+    Style ✔️  
+    Looks ✔️  
+    Swag ✔️  
+    Aur ladkiyon ki diwaangi?  
+    Unlimited 😂🔥
+  </p>
+  <button onclick="next(2)">Next 👉</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen hidden" id="s3">
+  <h1>Facts About Rahul 🤣</h1>
+  <p>
+    • Ladkiyan bolti hain “He’s cute” 😍  
+    <br>• Rahul bolta hai “Aadat hai” 😏  
+    <br>• Dil toot-te rehte hain…  
+    <br>• Rahul chill karta rehta hai 😂
+  </p>
+  <button onclick="next(3)">Last Truth 💀</button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen hidden" id="s4">
+  <h1>Final Verdict 🏆</h1>
+  <p>
+    Rahul ek hi piece hai 😎  
+    Overconfidence ❌  
+    Natural charm ✔️  
+    <br><br>
+    Girls be like: “Ek Rahul toh main bhi deserve karti hoon” 😂🔥
+  </p>
+</div>
+
+<script>
+function next(n){
+  document.getElementById("s"+n).classList.add("hidden");
+  document.getElementById("s"+(n+1)).classList.remove("hidden");
+}
+
+/* floating emojis */
+const emojis=["😂","🔥","😎","💃","❤️"];
+setInterval(()=>{
+  let e=document.createElement("div");
+  e.className="emoji";
+  e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+  e.style.left=Math.random()*100+"vw";
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),6000);
+},500);
+</script>
+
+</body>
+</html>
