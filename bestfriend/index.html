@@ -16,7 +16,6 @@ body{
   overflow:hidden;
   color:#fff;
 }
-
 .screen{
   position:absolute;
   inset:0;
@@ -29,7 +28,6 @@ body{
   transition:.7s;
 }
 .hidden{opacity:0;pointer-events:none;transform:scale(.9);}
-
 h1{
   font-family:'Dancing Script',cursive;
   font-size:40px;
@@ -40,7 +38,6 @@ p{
   max-width:340px;
   margin-bottom:18px;
 }
-
 button{
   background:#fff;
   color:#ff5f8a;
@@ -50,7 +47,6 @@ button{
   font-weight:600;
   cursor:pointer;
 }
-
 .photo{
   width:180px;
   height:180px;
@@ -60,7 +56,6 @@ button{
   box-shadow:0 0 30px rgba(255,255,255,.9);
   margin-bottom:20px;
 }
-
 .gallery{
   display:flex;
   gap:10px;
@@ -73,7 +68,6 @@ button{
   object-fit:cover;
   border:3px solid #fff;
 }
-
 .heart{
   position:absolute;
   font-size:20px;
@@ -83,7 +77,6 @@ button{
   from{transform:translateY(0);opacity:1;}
   to{transform:translateY(-100vh);opacity:0;}
 }
-
 .firework{
   position:absolute;
   width:6px;
@@ -106,16 +99,16 @@ button{
 
 <body>
 
-<!-- 🎵 BACKGROUND MUSIC -->
-<audio autoplay loop>
-  <source src="https://github.com/mayaaaaa/mayaaaaa.github.io/blob/main/8739365b075cf289e9cc97ae4de21efe.jpg" type="audio/mpeg">
+<!-- 🎵 BACKGROUND MUSIC (starts on click) -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <!-- SCREEN 1 -->
 <div class="screen" id="s1">
   <h1>Hey Raj 🐒💖</h1>
   <p>Ek chhota sa surprise… sirf mere pyare bacche ke liye 🎁</p>
-  <button onclick="next(1)">Tap Here 💝</button>
+  <button onclick="startMusic(); next(1)">Tap Here 💝</button>
 </div>
 
 <!-- SCREEN 2 -->
@@ -165,6 +158,11 @@ button{
 function next(n){
   document.getElementById("s"+n).classList.add("hidden");
   document.getElementById("s"+(n+1)).classList.remove("hidden");
+}
+
+/* 🎵 start music on click */
+function startMusic(){
+  document.getElementById("bgMusic").play();
 }
 
 /* hearts */
