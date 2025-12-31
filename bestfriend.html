@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year Raj 🐒💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#ff9a9e,#fad0c4);
+  height:100vh;
+  overflow:hidden;
+  color:#fff;
+}
+
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  transition:.7s;
+}
+.hidden{opacity:0;pointer-events:none;transform:scale(.9);}
+
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:40px;
+  margin-bottom:15px;
+}
+p{
+  font-size:16px;
+  max-width:340px;
+  margin-bottom:18px;
+}
+
+button{
+  background:#fff;
+  color:#ff5f8a;
+  border:none;
+  padding:12px 30px;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.photo{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #fff;
+  box-shadow:0 0 30px rgba(255,255,255,.9);
+  margin-bottom:20px;
+}
+
+.gallery{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
+.gallery img{
+  width:80px;
+  height:80px;
+  border-radius:15px;
+  object-fit:cover;
+  border:3px solid #fff;
+}
+
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:float 6s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(0);opacity:1;}
+  to{transform:translateY(-100vh);opacity:0;}
+}
+
+.firework{
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  box-shadow:
+    0 0 #fff,
+    20px 0 #ff0,
+    -20px 0 #f0f,
+    0 20px #0ff,
+    0 -20px #f00;
+  animation:boom 1.2s ease-out infinite;
+}
+@keyframes boom{
+  from{transform:scale(0);}
+  to{transform:scale(1.6);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio autoplay loop>
+  <source src="https://github.com/mayaaaaa/mayaaaaa.github.io/blob/main/8739365b075cf289e9cc97ae4de21efe.jpg" type="audio/mpeg">
+</audio>
+
+<!-- SCREEN 1 -->
+<div class="screen" id="s1">
+  <h1>Hey Raj 🐒💖</h1>
+  <p>Ek chhota sa surprise… sirf mere pyare bacche ke liye 🎁</p>
+  <button onclick="next(1)">Tap Here 💝</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen hidden" id="s2">
+  <img src="photo1.jpg" class="photo">
+  <h1>Happy New Year Raj 🎆</h1>
+  <p>
+    Tu sirf mera bestfriend nahi…  
+    tu meri aadat hai, meri sukoon hai,  
+    aur meri life ka sabse pyara bandar 🐒😭
+  </p>
+  <button onclick="next(2)">Next 💌</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen hidden" id="s3">
+  <h1>Mera Baccha 💝</h1>
+  <p>
+    Chahe hum lade, door ho jaaye…  
+    par sach ye hai ki  
+    <b>isliye main tumhe kabhi replace nahi kar sakti 😌</b>  
+    kyunki tu mera apna baccha hai 🥺
+  </p>
+
+  <div class="gallery">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+  </div>
+
+  <button onclick="next(3)">Last Surprise 💖</button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen hidden" id="s4">
+  <h1>Forever Raj 🐒💖</h1>
+  <p>
+    Happy New Year mere pyare Raj 🎆  
+    Tu hamesha khush rehna,  
+    aur yaad rakhna —  
+    chahe duniya saath de ya na de,  
+    <b>main hamesha tere saath hoon 🤍</b>
+  </p>
+</div>
+
+<script>
+function next(n){
+  document.getElementById("s"+n).classList.add("hidden");
+  document.getElementById("s"+(n+1)).classList.remove("hidden");
+}
+
+/* hearts */
+setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.bottom="0";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},400);
+
+/* fireworks */
+setInterval(()=>{
+  let f=document.createElement("div");
+  f.className="firework";
+  f.style.left=Math.random()*100+"vw";
+  f.style.top=Math.random()*60+"vh";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),1200);
+},900);
+</script>
+
+</body>
+</html>
