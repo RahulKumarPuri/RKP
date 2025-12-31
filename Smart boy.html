@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year Rahul 🎆</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  overflow:hidden;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+  text-align:center;
+}
+
+/* Start Screen */
+#start{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+
+#start button{
+  padding:15px 35px;
+  font-size:22px;
+  border:none;
+  border-radius:30px;
+  background:gold;
+  cursor:pointer;
+}
+
+/* Main */
+#main{
+  display:none;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.card{
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(10px);
+  border-radius:25px;
+  padding:30px;
+  box-shadow:0 0 30px rgba(255,215,0,0.5);
+  width:85%;
+  max-width:400px;
+  animation:fade 2s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:scale(0.8);}
+  to{opacity:1;transform:scale(1);}
+}
+
+h1{
+  font-size:36px;
+  text-shadow:0 0 20px gold;
+}
+
+p{
+  font-size:18px;
+  line-height:1.6;
+}
+
+button{
+  margin-top:20px;
+  padding:12px 25px;
+  font-size:18px;
+  border:none;
+  border-radius:25px;
+  background:#ff4081;
+  color:white;
+  cursor:pointer;
+}
+
+/* Surprise */
+#surprise{
+  display:none;
+  margin-top:15px;
+}
+
+/* Fireworks */
+.firework{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:gold;
+  border-radius:50%;
+  animation:explode 2s infinite;
+}
+
+@keyframes explode{
+  0%{transform:translateY(100vh) scale(0);opacity:1;}
+  100%{transform:translateY(-20vh) scale(2);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- START -->
+<div id="start">
+  <h2>Tap here 🎆</h2>
+  <button onclick="start()">New Year Surprise 😎</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <div class="card">
+    <h1>RAHUL 😎🔥</h1>
+
+    <p>
+      Happy New Year Bro 🎆😂  
+      Tu wo banda hai  
+      jo sochta hai sab dekh liya…  
+      par asli twist abhi baaki hai 😏
+    </p>
+
+    <button onclick="show()">Click kar warna regret karega 🤣</button>
+
+    <div id="surprise">
+      <p>
+        Sach bolu toh Rahul 💖  
+        Tu sirf funny nahi  
+        tu **special** hai 🫂  
+        New Year ho ya life…  
+        tu saath ho toh scene set rehta hai 😌✨
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function start(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("main").style.display="flex";
+  document.getElementById("music").play();
+}
+
+function show(){
+  document.getElementById("surprise").style.display="block";
+}
+
+/* Fireworks generate */
+setInterval(()=>{
+  let f=document.createElement("div");
+  f.className="firework";
+  f.style.left=Math.random()*100+"vw";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),2000);
+},300);
+</script>
+
+</body>
+</html>
