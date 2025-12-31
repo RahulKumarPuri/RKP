@@ -1,59 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year Naina 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#ff4e8a,#3b0a45);
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  overflow:hidden;
+}
+
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:.6s;
+}
+
+.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:scale(.9);
+}
+
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+p{
+  font-size:16px;
+  opacity:.9;
+  margin-bottom:20px;
+  max-width:300px;
+}
+
+button{
+  background:#fff;
+  color:#ff4e8a;
+  border:none;
+  padding:12px 26px;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.photo{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #fff;
+  margin-bottom:18px;
+}
+
+.cards{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.card{
+  background:rgba(255,255,255,.18);
+  padding:14px 22px;
+  border-radius:20px;
+  font-size:15px;
+}
+
+.gift{
+  font-size:50px;
+  margin-top:20px;
+  cursor:pointer;
+}
+
+.ticket{
+  background:rgba(255,255,255,.2);
+  padding:25px;
+  border-radius:25px;
+  max-width:300px;
+}
+
+.watermark{
+  position:absolute;
+  bottom:10px;
+  right:14px;
+  font-size:12px;
+  opacity:.4;
+}
+</style>
+</head>
+
 <body>
 
-<!-- Screen 1 -->
+<!-- SCREEN 1 -->
 <div class="screen" id="s1">
-  <h1>Happy New Year Naina 🎉💖</h1>
-  <p>
-    Ek chhoti si website…  
-    sirf us best friend ke liye  
-    jo meri life ka sabse pyara hissa hai 💕
-  </p>
-  <button onclick="next()">Tap Here Naina ✨</button>
+  <h1>Happy New Year 🥹✨</h1>
+  <p>Ek chhota sa surprise hai… sirf Naina ke liye 💖</p>
+  <button onclick="next(1)">Tap Here 💕</button>
 </div>
 
-<!-- Screen 2 -->
+<!-- SCREEN 2 -->
 <div class="screen hidden" id="s2">
-  <img src="naina.jpg" class="photo">
-  <h1>Meri Bestie 💫</h1>
-  <p>
-    Naina, tu sirf meri dost nahi hai…  
-    tu meri hasi, meri strength  
-    aur meri har kahani ka sabse khoobsurat part hai 💗
-  </p>
-  <button onclick="next()">Aage Dekho 💌</button>
-</div>
+  <img src="naina.jpg" class="photo" alt="Naina">
+  <h1>Naina 💫</h1>
 
-<!-- Screen 3 -->
-<div class="screen hidden" id="s3">
   <div class="cards">
-    <div class="card">💖 Hamesha saath</div>
-    <div class="card">😂 Pagal si hasi</div>
-    <div class="card">🤍 Bina judge kiye samajhna</div>
+    <div class="card">Drama Queen 👑</div>
+    <div class="card">Overthinking Machine 🤯</div>
+    <div class="card">Mood Swing Pro 🎢</div>
+    <div class="card">But meri sabse favourite 💖</div>
   </div>
-  <button onclick="next()">Ek Last Surprise 🎁</button>
-</div>
 
-<!-- Screen 4 -->
-<div class="screen hidden" id="s4">
-  <h1>2025 Wish ✨</h1>
-  <p class="ticket">
-    Naina, is naye saal mein  
-    teri har wish poori ho 🌸  
-    tu hamesha khush rahe, muskurati rahe  
-    aur main hamesha teri bestie rahun 💞
+  <p style="margin-top:15px;">
+    Isliye main tumhe kabhi replace nahi kar sakti 🥹💗
   </p>
-  <div class="gift">🎁💖</div>
+
+  <div class="gift" onclick="next(2)">🎁</div>
 </div>
 
-<div class="watermark">Made with 💕 by your best friend</div>
+<!-- SCREEN 3 -->
+<div class="screen hidden" id="s3">
+  <div class="ticket">
+    <h2>🎫 GOLDEN TICKET</h2>
+    <p>Valid for: Everyday with Naina 💖</p>
+    <p>Benefits: Unlimited Love, Care & Laughs</p>
+    <p>No Expiry Date ♾️</p>
+  </div>
+
+  <button style="margin-top:20px;" onclick="next(3)">
+    One Last Message 💌
+  </button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen hidden" id="s4">
+  <h1>Thank You Naina 🥹</h1>
+  <p>
+    Tu sirf meri bestie nahi,  
+    meri life ka sabse pyara hissa hai 💖✨
+  </p>
+  <p>Happy New Year 2026 🎉</p>
+</div>
+
+<div class="watermark">Made for Naina 💖</div>
 
 <script>
-let current = 1;
-function next(){
-  document.getElementById("s"+current).classList.add("hidden");
-  current++;
-  document.getElementById("s"+current).classList.remove("hidden");
+function next(n){
+  document.getElementById("s"+n).classList.add("hidden");
+  document.getElementById("s"+(n+1)).classList.remove("hidden");
 }
 </script>
 
 </body>
+</html>
